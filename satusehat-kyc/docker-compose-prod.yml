@@ -1,7 +1,17 @@
 services:
   app:
-    build: .
-    container_name: satusehat-kyc
-    env_file:
-      - .env
+    build:
+      context: ./satusehat-kyc
+      dockerfile: Dockerfile
     restart: unless-stopped
+    environment:
+      - IHS_CLIENT_SECRET=${IHS_CLIENT_SECRET}
+      - IHS_SECRET_KEY=${IHS_SECRET_KEY}
+      - PIN=${PIN}
+      - ORIGIN=${ORIGIN}
+      - HOST=0.0.0.0
+      - PORT=3000
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
