@@ -1,7 +1,7 @@
 services:
   app:
     build:
-      context: ./satusehat-kyc
+      context: .
       dockerfile: Dockerfile
     restart: unless-stopped
     environment:
